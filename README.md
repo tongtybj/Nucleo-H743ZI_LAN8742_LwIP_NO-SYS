@@ -22,24 +22,41 @@ please check the MPU settings for ethernet DMA, based on following website:
 
 ## usage:
 
-3. create a new Ethernet connection with static IP (192.168.25.xxx, xxx: except 238) in host PC.
+1. create a new Ethernet connection with static IP (192.168.25.xxx, xxx: except 238) in host PC.
 
-4. perform UDP receive test:
+2(a) [tag. tcp_ip](https://github.com/tongtybj/Nucleo-H743ZI_LAN8742_LwIP_NO-SYS/tree/tcp_ip): 
+
+- perform UDP receive test:
 
 ```
 $ python3 Scripts/socket_udp_receive.py
 ```
 
-5. perform TCP echo test:
+- perform TCP echo test:
 
 ```
 $ python3 Scripts/socket_tcp_send.py
 ```
 
+2(b) [tag. udp_polling](https://github.com/tongtybj/Nucleo-H743ZI_LAN8742_LwIP_NO-SYS/tree/udp_polling): 
 
-
-5. perform UDP echo test:
-
+- perform UDP echo test at 100Hz:
 ```
 $ python3 Scripts/socket_udp_send.py
 ```
+- calculate UDP echo speed at 1000Hz:
+```
+$ python3 Scripts/socket_udp_send2.py
+```
+
+2(c) [tag. udp_interrupt](https://github.com/tongtybj/Nucleo-H743ZI_LAN8742_LwIP_NO-SYS/tree/udp_interrupt): 
+
+- perform UDP echo test at 100Hz:
+```
+$ python3 Scripts/socket_udp_send.py
+```
+- calculate UDP echo speed at 1000Hz:
+```
+$ python3 Scripts/socket_udp_send2.py
+```
+**note**: problem the interrupt may corrupt while simultaneously performing `ping` and these scripts. Can not figure out the reason. But at least, solely perform either `ping` or these scripts is OK. 
